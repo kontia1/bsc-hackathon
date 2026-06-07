@@ -1,0 +1,647 @@
+[
+  {
+    "symbol": "CAKE",
+    "starting_capital": 10.0,
+    "final_capital": 10.0,
+    "total_return_pct": 0.0,
+    "total_trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": 0.0,
+    "max_drawdown_pct": 0,
+    "sharpe_ratio": 0,
+    "trades": [],
+    "equity_curve": [
+      {
+        "date": "2026-05-29",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-30",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-31",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-01",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-02",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-03",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-04",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-05",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-06",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-07",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "symbol": "FET",
+    "starting_capital": 10.0,
+    "final_capital": 10.0,
+    "total_return_pct": 0.0,
+    "total_trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": 0.0,
+    "max_drawdown_pct": 0,
+    "sharpe_ratio": 0,
+    "trades": [],
+    "equity_curve": [
+      {
+        "date": "2026-05-29",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-30",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-31",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-01",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-02",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-03",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-04",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-05",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-06",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-07",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "symbol": "LINK",
+    "starting_capital": 10.0,
+    "final_capital": 10.0,
+    "total_return_pct": 0.0,
+    "total_trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": 0.0,
+    "max_drawdown_pct": 0,
+    "sharpe_ratio": 0,
+    "trades": [],
+    "equity_curve": [
+      {
+        "date": "2026-05-29",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-30",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-31",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-01",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-02",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-03",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-04",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-05",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-06",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-07",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "symbol": "ADA",
+    "starting_capital": 10.0,
+    "final_capital": 9.6015,
+    "total_return_pct": -3.99,
+    "total_trades": 1,
+    "wins": 0,
+    "losses": 1,
+    "win_rate_pct": 0.0,
+    "max_drawdown_pct": 3.99,
+    "sharpe_ratio": -3.25,
+    "trades": [
+      {
+        "type": "BUY",
+        "price": 0.2311,
+        "size": 3.0,
+        "signals": [
+          "OTE zone",
+          "RSI oversold"
+        ],
+        "regime": "SWING_LONG",
+        "date": "2026-06-01"
+      },
+      {
+        "type": "SELL",
+        "reason": "stop_loss",
+        "price": 0.2004,
+        "pnl": -0.39852877542189535,
+        "pnl_pct": -13.284292514063178,
+        "date": "2026-06-03"
+      }
+    ],
+    "equity_curve": [
+      {
+        "date": "2026-05-29",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-30",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-31",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-01",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-02",
+        "value": 9.765036780614452
+      },
+      {
+        "date": "2026-06-03",
+        "value": 9.601471224578106
+      },
+      {
+        "date": "2026-06-04",
+        "value": 9.601471224578106
+      },
+      {
+        "date": "2026-06-05",
+        "value": 9.601471224578106
+      },
+      {
+        "date": "2026-06-06",
+        "value": 9.601471224578106
+      },
+      {
+        "date": "2026-06-07",
+        "value": 9.601471224578106
+      }
+    ]
+  },
+  {
+    "symbol": "AVAX",
+    "starting_capital": 10.0,
+    "final_capital": 10.0,
+    "total_return_pct": 0.0,
+    "total_trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": 0.0,
+    "max_drawdown_pct": 0,
+    "sharpe_ratio": 0,
+    "trades": [],
+    "equity_curve": [
+      {
+        "date": "2026-05-29",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-30",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-31",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-01",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-02",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-03",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-04",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-05",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-06",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-07",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "symbol": "DOT",
+    "starting_capital": 10.0,
+    "final_capital": 9.4835,
+    "total_return_pct": -5.17,
+    "total_trades": 1,
+    "wins": 0,
+    "losses": 1,
+    "win_rate_pct": 0.0,
+    "max_drawdown_pct": 9.38,
+    "sharpe_ratio": -1.21,
+    "trades": [
+      {
+        "type": "BUY",
+        "price": 1.239,
+        "size": 4.0,
+        "signals": [
+          "OTE zone",
+          "RSI oversold"
+        ],
+        "regime": "ACCUMULATE",
+        "date": "2026-04-03"
+      },
+      {
+        "type": "SELL",
+        "reason": "stop_loss",
+        "price": 1.079,
+        "pnl": -0.5165456012913644,
+        "pnl_pct": -12.91364003228411,
+        "date": "2026-06-02"
+      }
+    ],
+    "equity_curve": [
+      {
+        "date": "2026-05-29",
+        "value": 9.854721549636803
+      },
+      {
+        "date": "2026-05-30",
+        "value": 9.841807909604519
+      },
+      {
+        "date": "2026-05-31",
+        "value": 9.835351089588377
+      },
+      {
+        "date": "2026-06-01",
+        "value": 9.741727199354319
+      },
+      {
+        "date": "2026-06-02",
+        "value": 9.483454398708636
+      },
+      {
+        "date": "2026-06-03",
+        "value": 9.483454398708636
+      },
+      {
+        "date": "2026-06-04",
+        "value": 9.483454398708636
+      },
+      {
+        "date": "2026-06-05",
+        "value": 9.483454398708636
+      },
+      {
+        "date": "2026-06-06",
+        "value": 9.483454398708636
+      },
+      {
+        "date": "2026-06-07",
+        "value": 9.483454398708636
+      }
+    ]
+  },
+  {
+    "symbol": "UNI",
+    "starting_capital": 10.0,
+    "final_capital": 10.0,
+    "total_return_pct": 0.0,
+    "total_trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": 0.0,
+    "max_drawdown_pct": 0,
+    "sharpe_ratio": 0,
+    "trades": [],
+    "equity_curve": [
+      {
+        "date": "2026-05-29",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-30",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-31",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-01",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-02",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-03",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-04",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-05",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-06",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-07",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "symbol": "AAVE",
+    "starting_capital": 10.0,
+    "final_capital": 10.0062,
+    "total_return_pct": 0.06,
+    "total_trades": 2,
+    "wins": 2,
+    "losses": 2,
+    "win_rate_pct": 50.0,
+    "max_drawdown_pct": 7.96,
+    "sharpe_ratio": 0.12,
+    "trades": [
+      {
+        "type": "BUY",
+        "price": 94.81,
+        "size": 4.0,
+        "signals": [
+          "OTE zone",
+          "RSI oversold"
+        ],
+        "regime": "ACCUMULATE",
+        "date": "2026-04-03"
+      },
+      {
+        "type": "SELL",
+        "reason": "tp1",
+        "price": 115.46,
+        "pnl": 0.2613648349330238,
+        "pnl_pct": 21.78040291108532,
+        "date": "2026-04-16"
+      },
+      {
+        "type": "SELL",
+        "reason": "tp1",
+        "price": 114.86,
+        "pnl": 0.1776394895053264,
+        "pnl_pct": 21.14755827444362,
+        "date": "2026-04-17"
+      },
+      {
+        "type": "SELL",
+        "reason": "stop_loss",
+        "price": 86.17,
+        "pnl": -0.17861407024575468,
+        "pnl_pct": -9.112962767640544,
+        "date": "2026-05-22"
+      },
+      {
+        "type": "BUY",
+        "price": 80.3,
+        "size": 3.0781170762577785,
+        "signals": [
+          "OTE zone",
+          "RSI oversold"
+        ],
+        "regime": "SWING_LONG",
+        "date": "2026-06-01"
+      },
+      {
+        "type": "SELL",
+        "reason": "stop_loss",
+        "price": 73.67,
+        "pnl": -0.2541459055490543,
+        "pnl_pct": -8.256537982565375,
+        "date": "2026-06-02"
+      }
+    ],
+    "equity_curve": [
+      {
+        "date": "2026-05-29",
+        "value": 10.260390254192595
+      },
+      {
+        "date": "2026-05-30",
+        "value": 10.260390254192595
+      },
+      {
+        "date": "2026-05-31",
+        "value": 10.260390254192595
+      },
+      {
+        "date": "2026-06-01",
+        "value": 10.260390254192595
+      },
+      {
+        "date": "2026-06-02",
+        "value": 10.006244348643541
+      },
+      {
+        "date": "2026-06-03",
+        "value": 10.006244348643541
+      },
+      {
+        "date": "2026-06-04",
+        "value": 10.006244348643541
+      },
+      {
+        "date": "2026-06-05",
+        "value": 10.006244348643541
+      },
+      {
+        "date": "2026-06-06",
+        "value": 10.006244348643541
+      },
+      {
+        "date": "2026-06-07",
+        "value": 10.006244348643541
+      }
+    ]
+  },
+  {
+    "symbol": "DOGE",
+    "starting_capital": 10.0,
+    "final_capital": 10.0,
+    "total_return_pct": 0.0,
+    "total_trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": 0.0,
+    "max_drawdown_pct": 0,
+    "sharpe_ratio": 0,
+    "trades": [],
+    "equity_curve": [
+      {
+        "date": "2026-05-29",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-30",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-31",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-01",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-02",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-03",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-04",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-05",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-06",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-07",
+        "value": 10.0
+      }
+    ]
+  },
+  {
+    "symbol": "SHIB",
+    "starting_capital": 10.0,
+    "final_capital": 10.0,
+    "total_return_pct": 0.0,
+    "total_trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": 0.0,
+    "max_drawdown_pct": 0,
+    "sharpe_ratio": 0,
+    "trades": [],
+    "equity_curve": [
+      {
+        "date": "2026-05-29",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-30",
+        "value": 10.0
+      },
+      {
+        "date": "2026-05-31",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-01",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-02",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-03",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-04",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-05",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-06",
+        "value": 10.0
+      },
+      {
+        "date": "2026-06-07",
+        "value": 10.0
+      }
+    ]
+  }
+]
