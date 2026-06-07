@@ -208,22 +208,40 @@ class CMCClient {
     };
   }
 
-  // Filter eligible tokens for trading
+  // Hackathon eligible tokens (149 BEP-20 on BSC, from hackathon rules)
+  getEligibleSymbols() {
+    return [
+      'ETH','USDT','USDC','XRP','TRX','DOGE','ZEC','ADA','LINK','BCH','DAI','TON',
+      'USD1','USDe','M','LTC','AVAX','SHIB','XAUt','WLFI','H','DOT','UNI','ASTER',
+      'DEXE','USDD','ETC','AAVE','ATOM','U','STABLE','FIL','INJ','NIGHT','FET',
+      'TUSD','BONK','PENGU','CAKE','SIREN','LUNC','ZRO','KITE','FDUSD','BEAT',
+      'PIEVERSE','BTT','NFT','EDGE','FLOKI','LDO','B','FF','PENDLE','NEX','STG',
+      'AXS','TWT','HOME','RAY','COMP','GWEI','XCN','GENIUS','XPL','BAT','SKYAI',
+      'APE','IP','SFP','TAG','NXPC','AB','SAHARA','1INCH','CHEEMS','BANANAS31',
+      'RIVER','MYX','RAVE','SNX','FORM','LAB','HTX','USDf','CTM','BDX','SLX',
+      'UB','DUCKY','FRAX','BILL','WFI','KOGE','ALE','FRXUSD','USDF','GOMINING',
+      'VCNT','GUA','DUSD','SMILEK','0G','BEAM','MY','SOON','REAL','Q','AIOZ',
+      'ZIG','YFI','TAC','CYS','ZAMA','TRIA','HUMA','PLUME','ZIL','XPR','ZETA',
+      'NILA','ROSE','VELO','UAI','BRETT','OPEN','BSB','TOSHI','BAS','ACH','AXL',
+      'LUR','ELF','KAVA','APR','IRYS','EURI','XUSD','BARD','DUSK','SUSHI',
+      'PEAQ','COAI','BDCA','XAUM'
+    ];
+  }
+
+  // Filter eligible tokens for trading (hackathon universe only)
   async getTradeableUniverse(minVolume = 1e6, minMarketCap = 1e7) {
     const tokens = await this.getTopTokens(200);
+    const eligible = new Set(this.getEligibleSymbols());
     
-    // Stablecoins to exclude
+    // Stablecoins to exclude from trading (but keep in universe for reference)
     const stablecoins = new Set([
-      'USDT', 'USDC', 'DAI', 'FDUSD', 'TUSD', 'USDD', 'FRAX', 'LUSD', 
-      'GUSD', 'BUSD', 'USD1', 'USDe', 'USDf', 'USDF', 'XUSD', 'DUSD',
-      'FRXUSD', 'lisUSD'
+      'USDT', 'USDC', 'DAI', 'FDUSD', 'TUSD', 'USDD', 'FRAX', 'USD1', 'USDe',
+      'USDf', 'USDF', 'FRXUSD', 'DUSD', 'XUSD', 'EURI', 'FDUSD', 'lisUSD'
     ]);
     
-    // Wrapped tokens to exclude
-    const wrapped = new Set(['BTCB', 'HBTC', 'WBTC', 'WETH', 'STETH', 'WBNB']);
-    
     return tokens
-      .filter(t => !stablecoins.has(t.symbol) && !wrapped.has(t.symbol))
+      .filter(t => eligible.has(t.symbol))
+      .filter(t => !stablecoins.has(t.symbol))
       .filter(t => t.volume24h > minVolume)
       .filter(t => t.marketCap > minMarketCap)
       .sort((a, b) => b.volumeChange24h - a.volumeChange24h);
