@@ -1,10 +1,21 @@
 node_modules/
 .env
+.env.*
 *.log
 dist/
 build/
 __pycache__/
 *.pyc
 .venv/
+venv/
 data/trades.json
 data/proofs.json
+
+# Credentials — NEVER commit
+*.pem
+*.key
+*.secret
+*credentials*
+*cookies*
+*.env.b64
+bnbagent-sdk/
