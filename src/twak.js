@@ -102,14 +102,23 @@ class TWAKClient {
     return this._exec('compete status');
   }
 
+  // x402 micropayment — pay for data/API services
+  x402Quote(url) {
+    return this._exec(`x402 quote "${url}"`);
+  }
+
+  x402Pay(url, maxPayment = '10000') {
+    return this._exec(`x402 request "${url}" --prefer-network bsc --max-payment ${maxPayment} --yes --json`);
+  }
+
   // Start MCP server (for agent integration)
   serveMCP() {
     return this._exec('serve');
   }
 
-  // x402 payment
-  x402Pay(url) {
-    return this._exec(`x402 pay ${url}`);
+  // Start REST API server with x402 gating
+  serveREST(port = 3000) {
+    return this._exec(`serve --rest --port ${port}`);
   }
 }
 
