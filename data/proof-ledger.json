@@ -1,0 +1,75 @@
+{
+  "nextId": 4,
+  "entries": [
+    {
+      "id": 1,
+      "timestamp": "2026-06-07T08:51:46.418Z",
+      "type": "ANALYSIS",
+      "token": "MARKET",
+      "data": {
+        "regime": {
+          "fearGreed": 14,
+          "classification": "Extreme fear",
+          "mode": "ACCUMULATE",
+          "bias": "long-only, buy dips",
+          "positionSize": 0.4,
+          "btcDominance": 58.35763781577,
+          "dominanceNote": "",
+          "totalMarketCap": 2155828584580.751,
+          "timestamp": "2026-06-07T08:38:10.026Z"
+        }
+      },
+      "decision": "Analyzed",
+      "reasoning": [
+        "F&G: 14 → ACCUMULATE"
+      ],
+      "txHash": null,
+      "approved": null
+    },
+    {
+      "id": 2,
+      "timestamp": "2026-06-07T08:51:47.079Z",
+      "type": "RISK_CHECK",
+      "token": "SKYAI",
+      "data": {
+        "allowlist": true,
+        "positionSize": true,
+        "dailyLoss": true,
+        "maxDrawdown": true,
+        "slippage": true,
+        "cooldown": true,
+        "minSize": true,
+        "maxPositions": true
+      },
+      "decision": "APPROVED",
+      "reasoning": [
+        "All checks passed"
+      ],
+      "txHash": null,
+      "approved": true
+    },
+    {
+      "id": 3,
+      "timestamp": "2026-06-07T08:51:47.080Z",
+      "type": "RISK_CHECK",
+      "token": "FET",
+      "data": {
+        "allowlist": true,
+        "positionSize": true,
+        "dailyLoss": true,
+        "maxDrawdown": true,
+        "slippage": true,
+        "cooldown": true,
+        "minSize": true,
+        "maxPositions": true
+      },
+      "decision": "APPROVED",
+      "reasoning": [
+        "All checks passed"
+      ],
+      "txHash": null,
+      "approved": true
+    }
+  ],
+  "lastUpdated": "2026-06-07T08:51:47.080Z"
+}

@@ -69,7 +69,7 @@
 └──────────────────────────────────────────────────────┘
 ```
 
-**Key insight:** CMC x402 pays on **BASE chain**, not BSC. Need separate Base payment wallet.
+**Key insight:** CMC x402 runs natively on **BNB Chain** via TWAK. No separate Base wallet needed.
 
 ---
 
@@ -160,7 +160,7 @@ Output: APPROVED / REJECTED + reason
 |------|------------|
 | TWAK CLI immature | Budget 4h for debugging, fallback to ethers.js |
 | CMC MCP flaky | Cache data, fallback to direct CMC API |
-| x402 on Base not BSC | Separate Base wallet for payments |
+| ~~x402 on Base not BSC~~ | x402 native on BNB Chain via TWAK |
 | Strategy loses money | Risk engine hard stops, small position sizes |
 | BNB SDK unstable | Pin versions, ERC-8004 only (skip 8183 if time) |
 | Live demo fails | Pre-record backup video |
@@ -174,6 +174,6 @@ Output: APPROVED / REJECTED + reason
 | TWAK API key | portal.trustwallet.com | TODO |
 | CMC API key | coinmarketcap.com/api | TODO |
 | BSC wallet | Existing (0x0b14...) | Ready |
-| Base wallet (x402) | Need new or reuse | TODO |
+| x402 payments | TWAK native on BSC | Ready |
 | GitHub repo | Create under account | TODO |
 | Dorahacks account | dorahacks.io | TODO |
