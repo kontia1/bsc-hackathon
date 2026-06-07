@@ -297,6 +297,127 @@ class CMCClient {
     
     return { score: Math.min(score, 10), reasons };
   }
+
+  // Trending tokens (CMC free endpoint)
+  async getTrending() {
+    try {
+      const data = await this._request('/v1/cryptocurrency/trending/latest?limit=20&convert=USD');
+      const coins = data.data || [];
+      return coins.map(c => ({
+        id: c.id,
+        name: c.name,
+        symbol: c.symbol,
+        rank: c.cmc_rank,
+        price: c.quote?.USD?.price || 0,
+        percentChange24h: c.quote?.USD?.percent_change_24h || 0,
+        volume24h: c.quote?.USD?.volume_24h || 0,
+        marketCap: c.quote?.USD?.market_cap || 0,
+        numMarketPairs: c.num_market_pairs || 0,
+        trendScore: c.trend_score || 0,
+      }));
+    } catch (e) {
+      console.warn('[CMC] Trending error:', e.message);
+      return [];
+    }
+  }
+
+  // Top gainers and losers (24h)
+  async getGainersLosers(limit = 10) {
+    try {
+      const data = await this._request(`/v1/cryptocurrency/trending/gainers-losers?limit=${limit}&convert=USD&sort=percent_change_24h&sort_dir=desc`);
+      const gainers = (data.data?.gainers || []).map(c => this._formatToken(c));
+      const losers = (data.data?.losers || []).map(c => this._formatToken(c));
+      return { gainers, losers };
+    } catch (e) {
+      console.warn('[CMC] Gainers/Losers error:', e.message);
+      return { gainers: [], losers: [] };
+    }
+  }
+
+  // Token social/community stats
+  async getTokenSocialStats(symbols) {
+    try {
+      const ids = Array.isArray(symbols) ? symbols.join(',') : symbols;
+      const data = await this._request(`/v2/cryptocurrency/info?aux=urls,description,tags,date_added&slug=${ids}`);
+      const results = {};
+      for (const [id, token] of Object.entries(data.data || {})) {
+        results[token.symbol] = {
+          name: token.name,
+          symbol: token.symbol,
+          description: token.description || '',
+          dateAdded: token.date_added,
+          urls: token.urls || {},
+          tags: token.tags || [],
+          hasWebsite: !!(token.urls?.website?.length),
+          hasTwitter: !!(token.urls?.twitter?.length),
+          hasTelegram: !!(token.urls?.technical_doc?.length),
+          category: token.category || '',
+        };
+      }
+      return results;
+    } catch (e) {
+      console.warn('[CMC] Social stats error:', e.message);
+      return {};
+    }
+  }
+
+  // Market sentiment composite (combines multiple signals)
+  async getMarketSentiment() {
+    try {
+      const [fg, global, trending] = await Promise.all([
+        this.getFearGreed(),
+        this.getGlobalMetrics(),
+        this.getTrending(),
+      ]);
+
+      const btcDom = global.btcDominance || 50;
+      const stableMC = global.stablecoinMarketCap || 0;
+      const totalMC = global.totalMarketCap || 1;
+
+      // Stablecoin dominance (high = fear, waiting on sidelines)
+      const stableRatio = stableMC / totalMC;
+      const stableSignal = stableRatio > 0.12 ? 'HIGH_SIDELINE' : stableRatio > 0.08 ? 'MODERATE' : 'LOW_SIDELINE';
+
+      // Trending concentration (top 3 = high = crowded)
+      const top3Vol = trending.slice(0, 3).reduce((sum, t) => sum + (t.volume24h || 0), 0);
+      const totalVol = trending.reduce((sum, t) => sum + (t.volume24h || 0), 0);
+      const concentration = totalVol > 0 ? top3Vol / totalVol : 0;
+
+      return {
+        fearGreed: fg.value,
+        fearGreedClass: fg.classification,
+        btcDominance: btcDom,
+        stablecoinRatio: (stableRatio * 100).toFixed(2) + '%',
+        stableSignal,
+        trendingCount: trending.length,
+        trendingConcentration: (concentration * 100).toFixed(0) + '%',
+        topTrending: trending.slice(0, 5).map(t => t.symbol),
+        overallBias: fg.value < 35 ? 'ACCUMULATE' : fg.value > 65 ? 'DEFENSIVE' : 'NEUTRAL',
+      };
+    } catch (e) {
+      console.warn('[CMC] Sentiment error:', e.message);
+      return { fearGreed: 0, overallBias: 'UNKNOWN' };
+    }
+  }
+
+  // Format token helper
+  _formatToken(c) {
+    return {
+      id: c.id,
+      name: c.name,
+      symbol: c.symbol,
+      rank: c.cmc_rank,
+      price: c.quote?.USD?.price || 0,
+      percentChange1h: c.quote?.USD?.percent_change_1h || 0,
+      percentChange24h: c.quote?.USD?.percent_change_24h || 0,
+      percentChange7d: c.quote?.USD?.percent_change_7d || 0,
+      percentChange30d: c.quote?.USD?.percent_change_30d || 0,
+      volume24h: c.quote?.USD?.volume_24h || 0,
+      volumeChange24h: c.quote?.USD?.volume_change_24h || 0,
+      marketCap: c.quote?.USD?.market_cap || 0,
+      fdv: c.quote?.USD?.fully_diluted_market_cap || 0,
+    };
+  }
 }
 
 module.exports = { CMCClient };
