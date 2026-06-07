@@ -298,7 +298,7 @@ class CMCClient {
     return { score: Math.min(score, 10), reasons };
   }
 
-  // Trending tokens (CMC free endpoint)
+  // Trending tokens (requires Hobbyist+ plan)
   async getTrending() {
     try {
       const data = await this._request('/v1/cryptocurrency/trending/latest?limit=20&convert=USD');
@@ -316,12 +316,18 @@ class CMCClient {
         trendScore: c.trend_score || 0,
       }));
     } catch (e) {
-      console.warn('[CMC] Trending error:', e.message);
-      return [];
+      // Free tier: fall back to top movers from listings
+      console.warn('[CMC] Trending unavailable (free tier), using top movers fallback');
+      try {
+        const tokens = await this.getTopTokens(20);
+        return tokens.sort((a, b) => Math.abs(b.percentChange24h) - Math.abs(a.percentChange24h)).slice(0, 10);
+      } catch (e2) {
+        return [];
+      }
     }
   }
 
-  // Top gainers and losers (24h)
+  // Top gainers and losers (24h) — requires Hobbyist+ plan
   async getGainersLosers(limit = 10) {
     try {
       const data = await this._request(`/v1/cryptocurrency/trending/gainers-losers?limit=${limit}&convert=USD&sort=percent_change_24h&sort_dir=desc`);
@@ -329,8 +335,18 @@ class CMCClient {
       const losers = (data.data?.losers || []).map(c => this._formatToken(c));
       return { gainers, losers };
     } catch (e) {
-      console.warn('[CMC] Gainers/Losers error:', e.message);
-      return { gainers: [], losers: [] };
+      // Free tier: derive from listings
+      console.warn('[CMC] Gainers/Losers unavailable, deriving from listings');
+      try {
+        const tokens = await this.getTopTokens(100);
+        const sorted = tokens.sort((a, b) => b.percentChange24h - a.percentChange24h);
+        return {
+          gainers: sorted.slice(0, limit),
+          losers: sorted.slice(-limit).reverse(),
+        };
+      } catch (e2) {
+        return { gainers: [], losers: [] };
+      }
     }
   }
 
